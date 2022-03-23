@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Random;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -15,16 +13,6 @@ public class Main {
                 System.out.print(String.format("%4s",str));
             }
             System.out.println("\n");
-        }
-
-        // Second exercise
-
-        Random rand = new Random();
-        int arrRand[] = new int[4];
-        System.out.print("Random array: ");
-        for (int i = 0; i < 4; i++) {
-            arrRand[i] = rand.nextInt(1000);
-            System.out.print(arrRand[i] + " ");
         }
     }
 }
