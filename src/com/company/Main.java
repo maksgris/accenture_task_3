@@ -11,11 +11,10 @@ public class Main {
         // First exercise
 
         int arr[][] = new int[10][10];
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                arr[i][j] = (i + 1) * (j + 1);
-                String str = String.valueOf(arr[i][j]);
-                System.out.print(String.format("%4s", str));
+        for (int i = 1; i < 11; i++) {
+            for (int j = 1; j < 11; j++) {
+                arr[i-1][j-1] = i * j;
+                System.out.println(String.format("%d * %d = %d",i, j, arr[i-1][j-1]));
             }
             System.out.println("\n");
         }
