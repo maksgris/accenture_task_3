@@ -1,7 +1,9 @@
 package com.company;
 
+import java.util.Locale;
 import java.util.Random;
-import java.util.Scanner;
+
+enum Direction {LEFT, FORWARD, RIGHT}
 
 public class Main {
     public static void main(String[] args) {
@@ -31,8 +33,8 @@ public class Main {
         // Third & fourth exercises
 
         class BankAccount {
-            private int balance;
             public final int transferLimit = 5000;
+            private int balance;
 
             public BankAccount() {
             }
@@ -88,6 +90,95 @@ public class Main {
         bankAccountC.transfer(bankAccountB, 5001);
         bankAccountA.transferFrom(bankAccountB, 1001);
 
+        // Fifth exercise
 
+        class Vehicle {
+            protected Direction direction;
+            protected int speed;
+            protected int gears;
+        }
+
+        class Car extends Vehicle {
+
+            public int getSpeed() {
+                return speed;
+            }
+
+            public void setSpeed(int speed) {
+                this.speed = speed;
+            }
+
+            public Direction getDirection() {
+                return direction;
+            }
+
+            public void setDirection(Direction direction) {
+                this.direction = direction;
+            }
+
+            public int getGears() {
+                return gears;
+            }
+
+            public void setGears(int gears) {
+                this.gears = gears;
+            }
+
+
+        }
+
+        class MyCar extends Car {
+            protected String name;
+
+            public MyCar() {
+                this.setName("A new car");
+                this.setSpeed(0);
+                this.setDirection(Direction.FORWARD);
+                this.setGears(0);
+            }
+
+            public MyCar(String name, int speed, Direction direction, int gears) {
+                this.setName(name);
+                this.setSpeed(speed);
+                this.setDirection(direction);
+                this.setGears(gears);
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public void speedUp(int speed) {
+                this.speed += speed;
+                System.out.println("Your speed is " + this.speed);
+            }
+
+            public void slowDown(int speed) {
+                this.speed -= speed;
+                System.out.println("Your speed is " + this.speed);
+            }
+
+            public void steer(Direction direction) {
+                this.direction = direction;
+                System.out.println("You are now going " + (this.direction).toString().toLowerCase(Locale.ROOT));
+            }
+
+            public void changeGears(int gears) {
+                this.gears = gears;
+                System.out.println("Your car is now on " + this.gears + "th gear");
+            }
+        }
+
+        // Fifth exercise work example
+
+        MyCar Sport_car = new MyCar("Bugatti", 100, Direction.FORWARD, 3);
+        Sport_car.speedUp(10);
+        Sport_car.slowDown(5);
+        Sport_car.steer(Direction.RIGHT);
+        Sport_car.changeGears(4);
     }
 }
